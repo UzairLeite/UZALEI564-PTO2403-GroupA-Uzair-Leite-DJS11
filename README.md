@@ -1,49 +1,54 @@
-# UZALEI564-PTO2403-GroupA-Uzair-Leite-DJS11
-Podcast App 🎙️
+# React + TypeScript + Vite
 
-Welcome to the Podcast App, a React-based application that allows users to browse, listen to, and favorite podcast episodes. This project is built using React, TypeScript, Tailwind CSS, and React Router, and it fetches data from the Podcast API.
-Table of Contents
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-    Features
+Currently, two official plugins are available:
 
-    Technologies Used
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-    Setup Instructions
+## Expanding the ESLint configuration
 
-    Usage
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-    User Stories
+```js
+export default tseslint.config({
+  extends: [
+    // Remove ...tseslint.configs.recommended and replace with this
+    ...tseslint.configs.recommendedTypeChecked,
+    // Alternatively, use this for stricter rules
+    ...tseslint.configs.strictTypeChecked,
+    // Optionally, add this for stylistic rules
+    ...tseslint.configs.stylisticTypeChecked,
+  ],
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
+```
 
-    Project Structure
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-    Contact Information
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-Features
-
-    Browse Podcasts: View a list of available podcast shows with details like title, description, genres, and seasons.
-
-    Listen to Episodes: Play a placeholder audio track for any episode.
-
-    Favorite Episodes: Mark specific episodes as favorites and view them in a dedicated favorites section.
-
-    Genre Filtering: Filter shows by genre.
-
-    Responsive Design: Works seamlessly on desktop, tablet, and mobile devices.
-
-    Persistent Storage: Favorites and listening history are saved in localStorage.
-
-Technologies Used
-
-    React: A JavaScript library for building user interfaces.
-
-    TypeScript: A typed superset of JavaScript for better developer experience.
-
-    Tailwind CSS: A utility-first CSS framework for styling.
-
-    React Router: For navigation between different pages.
-
-    localForage: A library for persistent storage using localStorage.
-
-    Vite: A fast build tool for modern web development.
-
-Enjoy exploring the world of podcasts with this app! 🎧
+export default tseslint.config({
+  plugins: {
+    // Add the react-x and react-dom plugins
+    'react-x': reactX,
+    'react-dom': reactDom,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended typescript rules
+    ...reactX.configs['recommended-typescript'].rules,
+    ...reactDom.configs.recommended.rules,
+  },
+})
+```
