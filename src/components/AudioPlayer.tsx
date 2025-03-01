@@ -20,15 +20,20 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src }) => {
   };
 
   return (
-    <div className="flex items-center space-x-4">
+    <div className="audio-player">
       <button
         onClick={togglePlayPause}
-        className="p-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors duration-300"
+        className="audio-button"
       >
         {isPlaying ? 'Pause' : 'Play'}
       </button>
-      <audio ref={audioRef} src={src} onPlay={() => setIsPlaying(true)} onPause={() => setIsPlaying(false)} />
-      {isPlaying && <p className="text-gray-600">Now Playing...</p>}
+      <audio
+        ref={audioRef}
+        src={src}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+      />
+      {isPlaying && <p className="audio-text">Now Playing...</p>}
     </div>
   );
 };

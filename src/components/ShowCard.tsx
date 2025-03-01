@@ -16,17 +16,17 @@ const ShowCard: React.FC<ShowCardProps> = ({ show, onClick }) => {
   return (
     <div
       onClick={onClick}
-      className="bg-white rounded-lg shadow-lg p-6 cursor-pointer hover:shadow-xl transition-shadow duration-300"
+      className="card"
     >
       <img
         src={show.image}
         alt={show.title}
-        className="w-full h-48 object-cover rounded-lg mb-4"
+        className="card-image"
       />
-      <h2 className="text-xl font-semibold text-gray-800">{show.title}</h2>
-      <p className="text-gray-600">Genres: {show.genres.join(', ')}</p>
-      <p className="text-gray-600">Seasons: {show.seasons}</p>
-      <p className="text-gray-600">
+      <h2 className="card-title">{show.title}</h2>
+      <p className="card-text">Genres: {show.genres.join(', ')}</p>
+      <p className="card-text">Seasons: {show.seasons}</p>
+      <p className="card-text">
         Last Updated: {new Date(show.updated).toLocaleDateString()}
       </p>
     </div>
