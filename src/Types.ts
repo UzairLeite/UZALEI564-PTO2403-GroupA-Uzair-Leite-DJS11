@@ -1,4 +1,8 @@
+import { ReactNode } from "react";
+
 export interface Episode {
+    description: ReactNode;
+    audioUrl: string;
     id: string;
     title: string;
     seasonId: string;

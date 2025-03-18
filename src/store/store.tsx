@@ -4,6 +4,8 @@ import { Show } from '../Types';
 
 interface AppState {
   shows: Show[];
+  selectedShow: Show | null;  // ✅ Added selectedShow
+  setSelectedShow: (show: Show | null) => void; // ✅ Function to update selectedShow
   loading: boolean;
   error: string | null;
 }
@@ -16,6 +18,7 @@ interface AppProviderProps {
 
 export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   const [shows, setShows] = useState<Show[]>([]);
+  const [selectedShow, setSelectedShow] = useState<Show | null>(null); // ✅ Initialize selectedShow
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -35,7 +38,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   }, []);
 
   return (
-    <AppContext.Provider value={{ shows, loading, error }}>
+    <AppContext.Provider value={{ shows, selectedShow, setSelectedShow, loading, error }}>
       {children}
     </AppContext.Provider>
   );
