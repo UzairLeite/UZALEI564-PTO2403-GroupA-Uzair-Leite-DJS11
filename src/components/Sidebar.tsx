@@ -9,7 +9,7 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ darkMode, setDarkMode }) => {
   return (
     <nav className="sidebar">
-      <h2>Podcast App</h2>
+      <h2>PodFlow - Podcast App</h2>
       <ul>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/favorites">Favorites</Link></li>

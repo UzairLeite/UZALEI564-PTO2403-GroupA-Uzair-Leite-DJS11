@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useAppContext } from './store/store';
+import { useAppContext  } from './store/store';
 import { RouterProvider } from 'react-router-dom';
 import router from './routes';
 import AudioPlayer from './components/AudioPlayer';
-import Sidebar from './components/Sidebar'; // Sidebar for navigation
+import Sidebar from './components/Sidebar'; 
 import './index.css';
 
 const App: React.FC = () => {
@@ -21,9 +21,9 @@ const App: React.FC = () => {
         <RouterProvider router={router} />
       </div>
 
-      <div className="audio-player-container">
+      {/* <div className="audio-player-container">
         <AudioPlayer src="https://example.com/audio.mp3" />
-      </div>
+      </div> */}
     </div>
   );
 };

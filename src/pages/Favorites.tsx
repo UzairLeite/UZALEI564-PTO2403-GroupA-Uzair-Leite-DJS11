@@ -3,7 +3,7 @@ import { useAppContext } from '../store/store';
 import { getFavorites, removeFavorite } from '../utils/storage';
 import ShowCard from '../components/ShowCard';
 import AudioPlayer from '../components/AudioPlayer';
-import { Show, Episode } from '../Types';
+import { Episode } from '../Types';
 
 interface FavoriteEpisode {
   id: string;
